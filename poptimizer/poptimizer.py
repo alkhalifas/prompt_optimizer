@@ -34,6 +34,7 @@ class Poptimizer:
             ]
         )
 
+
         optimized_prompt = completion.choices[0].message.content
 
         if execute_optimized:
