@@ -1,7 +1,30 @@
 from openai import OpenAI
 
 class Poptimizer:
+    """
+    Poptimizer (Prompt Optimizer) is a class designed to optimize prompts for ChatGPT models.
+    It enhances original prompts to be more specific, clear, and structured, thus improving
+    the quality of responses from the AI model.
+
+    Attributes:
+        client (OpenAI): An instance of the OpenAI client.
+        temperature (float): A temperature setting for the AI model, influencing the creativity
+                             and variability of responses.
+
+    Methods:
+        optimize_prompt(original_prompt, execute_optimized=False): Optimizes a given prompt and
+                                                                   optionally executes it.
+        execute_optimized_prompt(optimized_prompt): Executes an optimized prompt and returns the
+                                                    AI's response.
+    """
+
     def __init__(self, temperature):
+        """
+        Initializes the Poptimizer with a specific temperature setting for the AI responses.
+
+        Args:
+            temperature (float): Temperature setting for the AI model's responses.
+        """
         self.client = OpenAI()
         self.temperature = temperature
 
@@ -9,9 +32,13 @@ class Poptimizer:
         """
         Optimizes a prompt using GPT and optionally executes the optimized prompt.
 
-        :param original_prompt: A string containing the initial prompt.
-        :param execute_optimized: A boolean that decides whether to execute the optimized prompt.
-        :return: A string containing the improved/optimized prompt or its execution result.
+        Args:
+            original_prompt (str): The initial prompt to be optimized.
+            execute_optimized (bool): If True, executes the optimized prompt and returns its result.
+
+        Returns:
+            str: The optimized prompt.
+            tuple: The optimized prompt and its execution result, if execute_optimized is True.
         """
         optimization_prompt = f"""
         Please make the following original prompt more specific by following these instructions:
@@ -44,10 +71,13 @@ class Poptimizer:
 
     def execute_optimized_prompt(self, optimized_prompt):
         """
-        Executes an optimized prompt using ChatGPT.
+        Executes an optimized prompt using ChatGPT and returns the result.
 
-        :param optimized_prompt: A string containing the optimized prompt.
-        :return: The result of executing the optimized prompt.
+        Args:
+            optimized_prompt (str): The optimized prompt to be executed.
+
+        Returns:
+            str: The result of executing the optimized prompt.
         """
         completion = self.client.chat.completions.create(
             model="gpt-3.5-turbo",
