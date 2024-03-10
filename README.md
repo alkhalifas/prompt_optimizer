@@ -25,12 +25,33 @@ Initialize the Poptimizer with desired temperature
 
 Optimize a prompt
 
-    original_prompt = "Describe the process of photosynthesis."
+    original_prompt = "Tell me a story about a company in Boston."
     optimized_prompt = poptimizer.optimize_prompt(original_prompt)
 
     print("Optimized Prompt:", optimized_prompt)
 
+Optimized Prompt:
+
+    Title: Crafting a Tale: The Rise of Tech Innovators in Boston
+    
+    Part 1: Introduction (50 words)
+    Describe the setting of Boston as a hub for tech innovation and entrepreneurship.
+    
+    Part 2: Company Background (100 words)
+    Introduce a fictional tech company based in Boston. Provide details on its founders, mission, and unique product/service.
+    
+    Part 3: Challenges Faced (75 words)
+    Detail the obstacles the company encounters in the competitive tech landscape.
+    
+    Part 4: Innovation and Success (100 words)
+    Explain how the company overcomes challenges through innovation and determination, leading to success.
+    
+    Part 5: Conclusion (50 words)
+    Reflect on the company's journey and its impact on the Boston tech scene.
+
 Optionally, execute the optimized prompt
 
     optimized_prompt, response = poptimizer.optimize_prompt(original_prompt, execute_optimized=True)
-    print("Response:", response)
+    print("Response:", response) # Produces the response
+
+
